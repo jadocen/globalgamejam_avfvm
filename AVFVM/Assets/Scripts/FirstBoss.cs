@@ -4,23 +4,18 @@ using UnityEngine;
 
 public class FirstBoss : BossBase
 {
-    private void Start()
+    public override void Start()
     {
         InitializeBoss(5);
-        Attack1(0);
+        base.Start();
     }
 
-    //Shoot snacks to direction of player
-    public override void Attack1(int random)
+    public override IEnumerator Attack1()
     {
-        for (int i = 0; i < 5; i++)
-        {
-            GameObject projectile = Instantiate(_projectileGO[random], transform.position, Quaternion.identity);
-            projectile.GetComponent<Projectile>()._speed = _projectileSpeed[0];
-            projectile.GetComponent<Projectile>()._target = _player;
-        }
-        Invoke("NextAttack", 3f);
+        float fireRate = 1f;
+        GameObject projectile = Instantiate(_projectileGO[_choice], transform.position, _aimDirection.transform.rotation);
+        projectile.GetComponent<Projectile>().Initialize(_projectileSpeed[_choice], 3f);
+        yield return new WaitForSeconds(fireRate);
+        _canShoot = true;
     }
-
-
 }

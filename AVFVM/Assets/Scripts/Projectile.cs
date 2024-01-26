@@ -5,16 +5,26 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     public float _speed;
-    public PlayerControls _target;
 
-    private void Start()
+    public void Initialize(float speed, float lifetime)
     {
-        transform.LookAt(_target.transform.position);
+        _speed = speed;
+        Invoke("Lifetime", lifetime);
     }
 
     private void Update()
     {
-        transform.position += transform.forward * _speed * Time.deltaTime;
+        transform.Translate(Vector2.up * _speed * Time.deltaTime);
     }
 
+    public void Lifetime()
+    {
+        Destroy(gameObject);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        collision.gameObject.GetComponent<HealthComponent>().TakeDamage(1f);
+        Destroy(gameObject);
+    }
 }

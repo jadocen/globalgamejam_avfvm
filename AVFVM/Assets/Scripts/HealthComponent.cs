@@ -4,15 +4,9 @@ using UnityEngine;
 
 public class HealthComponent : MonoBehaviour
 {
-    public CapsuleCollider2D _hitBox;
 
     [Header("[STATS]")]
     public float _health;
-
-    public void OnTriggerEnter2D(Collider2D collision)
-    {
-        TakeDamage(1f);
-    }
 
     public void Start()
     {
@@ -55,6 +49,6 @@ public class HealthComponent : MonoBehaviour
 
     private void Die()
     {
-        Debug.Log("Death");
+        Destroy(gameObject);
     }
 }
