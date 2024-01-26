@@ -4,18 +4,25 @@ using UnityEngine;
 
 public class BossBase : MonoBehaviour
 {
-    public float _health;
+    [SerializeField] private EnemyHealth _enemyHealthScript;
 
-    private float _moveSpeed;
-
-    void Start()
+    public void InitializeBoss(float health)
     {
-        
+        _enemyHealthScript.InitializeHealth(health);
     }
 
-    // Update is called once per frame
-    void Update()
+    public virtual void Attack1()
     {
-        
+
+    }
+
+    public virtual void Attack2()
+    {
+
+    }
+
+    public virtual void Attack3()
+    {
+
     }
 }
