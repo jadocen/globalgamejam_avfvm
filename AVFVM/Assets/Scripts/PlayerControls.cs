@@ -4,17 +4,10 @@ using UnityEngine;
 
 public class PlayerControls : MonoBehaviour
 {
-    [Header("[PLAYER STATS]")]
-    public float health;
-    public float speed = 10;
+    public float _speed = 10;
 
-    private float lightDamage = 5;
-    private float heavyDamage = 10;
-
-    public void Start()
-    {
-        health = 3f;
-    }
+    private float _lightDamage = 5;
+    private float _heavyDamage = 10;
 
     public void Update()
     {
@@ -31,33 +24,24 @@ public class PlayerControls : MonoBehaviour
     private void LateUpdate()
     {
         Move();
-        RegulateHealth();
     }
 
     public float PunchAttack()
     {
-        Debug.Log(lightDamage);
-        return lightDamage;
+        Debug.Log(_lightDamage);
+        return _lightDamage;
     }
 
     public float KickAttack()
     {
-        Debug.Log(heavyDamage);
-        return heavyDamage;
-    }
-
-    private void RegulateHealth()
-    {
-        if (health > 10)
-        {
-            health = 10;
-        }
+        Debug.Log(_heavyDamage);
+        return _heavyDamage;
     }
 
     private void Move()
     {
-        float translation = Input.GetAxis("Vertical") * speed * Time.deltaTime;
-        float rotation = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
+        float translation = Input.GetAxis("Vertical") * _speed * Time.deltaTime;
+        float rotation = Input.GetAxis("Horizontal") * _speed * Time.deltaTime;
 
         transform.Translate(rotation, translation, 0);
     }
