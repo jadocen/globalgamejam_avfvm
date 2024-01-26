@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class HealthComponent : MonoBehaviour
 {
+    public CapsuleCollider2D _hitBox;
+
     [Header("[STATS]")]
     public float _health;
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        TakeDamage(1f);
+    }
 
     public void Start()
     {
         _health = 3f;
     }
 
-    public void Update()
+    public virtual void Update()
     {
         //[DEBUG]
         if (Input.GetKeyDown(KeyCode.T))
@@ -21,13 +28,13 @@ public class HealthComponent : MonoBehaviour
         }
     }
 
-    public void TakeDamage(float damageTaken)
+    public virtual void TakeDamage(float damageTaken)
     {
         _health -= damageTaken;
         RegulateHealth();
     }
 
-    public void GainHealth(float addHealth)
+    public virtual void GainHealth(float addHealth)
     {
         _health += addHealth;
         RegulateHealth();
