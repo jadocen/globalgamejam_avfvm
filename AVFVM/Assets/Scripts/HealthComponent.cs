@@ -14,8 +14,6 @@ public class HealthComponent : MonoBehaviour
 
     public void Update()
     {
-        RegulateHealth();
-
         //[DEBUG]
         if (Input.GetKeyDown(KeyCode.T))
         {
@@ -26,11 +24,13 @@ public class HealthComponent : MonoBehaviour
     public void TakeDamage(float damageTaken)
     {
         _health -= damageTaken;
+        RegulateHealth();
     }
 
     public void GainHealth(float addHealth)
     {
         _health += addHealth;
+        RegulateHealth();
     }
 
     private void RegulateHealth()
