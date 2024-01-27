@@ -7,6 +7,8 @@ public class HealthComponent : MonoBehaviour
 
     [Header("[STATS]")]
     public float _health;
+    public PlayerControls _player;
+    public SpriteRenderer _playerColor;
 
     public void Start()
     {
@@ -24,8 +26,13 @@ public class HealthComponent : MonoBehaviour
 
     public virtual void TakeDamage(float damageTaken)
     {
-        _health -= damageTaken;
-        RegulateHealth();
+        if (_player._isInvulnerable == false)
+        {
+            _player._isInvulnerable = true;
+            _health -= damageTaken;
+            RegulateHealth();
+            StartCoroutine(Invulnerability());
+        }
     }
 
     public virtual void GainHealth(float addHealth)
@@ -45,6 +52,12 @@ public class HealthComponent : MonoBehaviour
         {
             Die();
         }
+    }
+
+    public IEnumerator Invulnerability()
+    {
+        yield return new WaitForSeconds(4f);
+        _player._isInvulnerable = false;
     }
 
     private void Die()

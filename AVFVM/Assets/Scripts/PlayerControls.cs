@@ -9,10 +9,22 @@ public class PlayerControls : MonoBehaviour
     public Animator _animator;
     public Rigidbody2D _rb;
     public GameObject _pivotPoint;
-    public GameObject _attackBox;
+    public AttackBox _attackBox;
     private Vector2 _movement;
-    private float _lightDamage = 5;
-    private float _heavyDamage = 10;
+    private float _lightDamage;
+    private float _heavyDamage;
+    private bool _canAttack;
+    public bool _isInvulnerable;
+    private bool _startModulating;
+
+    private void Start()
+    {
+        _lightDamage = 5;
+        _heavyDamage = 10;
+        _canAttack = true;
+        _isInvulnerable = false;
+        _startModulating = true;
+    }
 
     public void Update()
     {
@@ -23,13 +35,18 @@ public class PlayerControls : MonoBehaviour
         _animator.SetFloat("Vertical", _movement.y);
         _animator.SetFloat("Speed", _movement.sqrMagnitude);
 
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (_canAttack)
         {
-            PunchAttack();
-        }
-        else if (Input.GetKeyDown(KeyCode.E))
-        {
-            KickAttack();
+            if (Input.GetKeyDown(KeyCode.Q) && _movement == Vector2.zero)
+            {
+                _canAttack = false;
+                PunchAttack(0.3f);
+            }
+            else if (Input.GetKeyDown(KeyCode.E) && _movement == Vector2.zero)
+            {
+                _canAttack = false;
+                KickAttack(0.8f);
+            }
         }
 
         if (_movement != Vector2.zero)
@@ -42,8 +59,11 @@ public class PlayerControls : MonoBehaviour
             _animator.SetFloat("VerticalIdle", _movement.y);
         }
 
-        //Quaternion rotation = Quaternion.LookRotation(new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0) - transform.position);
-        //_attackBox.transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 0);
+        if (_isInvulnerable && _startModulating)
+        {
+            _startModulating = false;
+            StartCoroutine(ModulateColor());
+        }
     }
 
     private void FixedUpdate()
@@ -51,16 +71,52 @@ public class PlayerControls : MonoBehaviour
         Move();
     }
 
-    public float PunchAttack()
+    public IEnumerator ModulateColor()
     {
-        Debug.Log(_lightDamage);
-        return _lightDamage;
+        SpriteRenderer playerColor = gameObject.GetComponent<SpriteRenderer>();
+        if (playerColor.color.a > 0.3f)
+        {
+            playerColor.color = new Color(1, 1, 1, 0.3f);
+        }
+        else
+        {
+            playerColor.color = new Color(1, 1, 1, 0.8f);
+        }
+        yield return new WaitForSeconds(0.1f);
+        if (_isInvulnerable)
+        {
+            StartCoroutine(ModulateColor());
+        }
+        else
+        {
+            playerColor.color = Color.white;
+            _startModulating = true;
+        }
     }
 
-    public float KickAttack()
+    public void PunchAttack(float cooldown)
     {
-        Debug.Log(_heavyDamage);
-        return _heavyDamage;
+        _animator.SetTrigger("isPunching");
+        if (_attackBox._boss != null)
+        {
+            _attackBox._boss.TakeDamage(_lightDamage);
+        }
+        Invoke("Attack", cooldown);
+    }
+
+    public void KickAttack(float cooldown)
+    {
+        _animator.SetTrigger("isKicking");
+        if (_attackBox._boss != null)
+        {
+            _attackBox._boss.TakeDamage(_heavyDamage);
+        }
+        Invoke("Attack", cooldown);
+    }
+
+    public void AttackDone()
+    {
+        _animator.SetTrigger("AttackDone");
     }
 
     private void Move()
@@ -90,5 +146,10 @@ public class PlayerControls : MonoBehaviour
                 _pivotPoint.transform.rotation = Quaternion.Euler(0, 0, 180);
             }
         }
+    }
+
+    public void Attack()
+    {
+        _canAttack = true;
     }
 }

@@ -30,24 +30,28 @@ public class BossBase : MonoBehaviour
 
     private void Update()
     {
-        Vector2 direction = _player.gameObject.transform.position - _aimDirection.transform.position;
-        _aimDirection.transform.rotation = Quaternion.FromToRotation(Vector3.up, direction);
+        if (_player != null)
+        {
+            Vector2 direction = _player.gameObject.transform.position - _aimDirection.transform.position;
+            _aimDirection.transform.rotation = Quaternion.FromToRotation(Vector3.up, direction);
 
-        if (_isAttacking && _canShoot)
-        {
-            _canShoot = false;
-            Attack();
-        }
+            if (_isAttacking && _canShoot)
+            {
+                _canShoot = false;
+                Attack();
+            }
 
-        if (_currentDuration > 0)
-        {
-            _currentDuration -= 1f * Time.deltaTime;
+            if (_currentDuration > 0)
+            {
+                _currentDuration -= 1f * Time.deltaTime;
+            }
+            else if (_reset)
+            {
+                _reset = false;
+                StartCoroutine(NextAttack());
+            }
         }
-        else if (_reset)
-        {
-            _reset = false;
-            StartCoroutine(NextAttack());
-        }
+        
     }
 
     public void StartAttacking()
