@@ -5,6 +5,7 @@ using UnityEngine;
 public class Induction : MinionBase
 {
     public GameObject _inductionHeat;
+    public Animator _animator;
 
     public override void Attack()
     {
