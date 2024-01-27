@@ -4,20 +4,22 @@ using UnityEngine;
 
 public class Janitor : MinionBase
 {
-    public float _speed = 10;
+    private Vector3 _direction;
 
-    public override void Attack()
+    public override void Attack() //Janitor Goes Right
     {
         base.Attack();
-        if(_isAttacking)
-        { 
-            transform.Translate(Vector2.right * Time.deltaTime * _speed);
-        }
+        _direction = Vector3.right;
     }
 
-    public override void ChargeTime()
+    public override void ChargeTime() //Janitor Goes Left
     {
         base.ChargeTime();
-        //transform.Translate(Vector2.right * Mathf.Sin(1f));
+        _direction = Vector3.left;
+    }
+
+    private void FixedUpdate()
+    {
+        transform.Translate(_direction * Time.deltaTime);
     }
 }
