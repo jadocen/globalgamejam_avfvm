@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Surveillance : MinionBase
 {
     //Angle of rotation per Second
     public float _speed = 60f;
-    public float _playerDirection = 0f;
+    public float _detectionWindow = 3f;
 
     public Vector3 _rotation;
     public bool _isPlayerDetected = false;
@@ -23,22 +24,28 @@ public class Surveillance : MinionBase
         _rotation = new Vector3(0, 0, 0f);
     }
 
-    public void OnTriggerEnter2D(Collider2D other)
+    public void OnTriggerEnter2D(Collider2D other) //DETECTION - Start
     {
         _isPlayerDetected = true;
         StartCoroutine(CO_ResetLevel());
     }
 
-    public void OnTriggerExit2D(Collider2D other)
+    public void OnTriggerExit2D(Collider2D other) //DETECTION - Stops
     {
         _isPlayerDetected = false;
+
+        //Cancels restart if player leaves FOV
         StopAllCoroutines();
     }
 
     private IEnumerator CO_ResetLevel()
     {
-        yield return new WaitForSeconds(3f);
-        Debug.Log("RESTART");
+        //Starts counting down from 3, once player gets detected
+        yield return new WaitForSeconds(_detectionWindow);
+
+        //Level Restarts if player is still detected after 3s
+        Scene scene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(scene.name);
     }
 
     private void FixedUpdate()
