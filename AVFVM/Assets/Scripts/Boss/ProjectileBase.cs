@@ -5,6 +5,7 @@ using UnityEngine;
 public class ProjectileBase : MonoBehaviour
 {
     public float _speed;
+    public GameObject _target;
 
     public virtual void Start()
     {
@@ -27,9 +28,12 @@ public class ProjectileBase : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    public virtual void OnCollisionEnter2D(Collision2D collision)
     {
-        collision.gameObject.GetComponent<HealthComponent>().TakeDamage(1f);
+        if (collision.gameObject.GetComponent<HealthComponent>())
+        {
+            collision.gameObject.GetComponent<HealthComponent>().TakeDamage(1f);
+        }
         Destroy(gameObject);
     }
 }

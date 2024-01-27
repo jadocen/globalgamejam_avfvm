@@ -8,10 +8,11 @@ public class SecondBoss : BossBase
 
     public override void Start()
     {
-        InitializeBoss(150);
         _aimDirection2 = transform.GetChild(1).gameObject;
         base.Start();
+        InitializeBoss(150);
     }
+
     public override void Update()
     {
         if (_player != null)
@@ -39,11 +40,11 @@ public class SecondBoss : BossBase
         _doNext = 3f;
         float fireRate = 2f;
         GameObject projectile = Instantiate(_projectileGO[_choice], _aimDirection.transform.position, _aimDirection.transform.rotation);
-        projectile.GetComponent<Homing>()._target = _player.gameObject;
+        projectile.GetComponent<ProjectileBase>()._target = _player.gameObject;
         projectile.GetComponent<ProjectileBase>().Initialize(_projectileSpeed[_choice], 5f);
         yield return new WaitForSeconds(0.2f);
         GameObject projectile2 = Instantiate(_projectileGO[_choice], _aimDirection.transform.position, _aimDirection.transform.rotation);
-        projectile2.GetComponent<Homing>()._target = _player.gameObject;
+        projectile2.GetComponent<ProjectileBase>()._target = _player.gameObject;
         projectile2.GetComponent<ProjectileBase>().Initialize(_projectileSpeed[_choice], 5f);
         yield return new WaitForSeconds(fireRate);
         _canShoot = true;
@@ -51,10 +52,12 @@ public class SecondBoss : BossBase
 
     public override IEnumerator Attack3()
     {
-        _doNext = 1f;
-        float chargeTime = _duration[_choice] - 2f;
-        yield return new WaitForSeconds(chargeTime);
+        _doNext = 3f;
+        float fireRate = 2f;
         GameObject projectile = Instantiate(_projectileGO[_choice], transform.position, _aimDirection.transform.rotation);
-        projectile.GetComponent<ProjectileBase>().Initialize(_projectileSpeed[_choice], 3f);
+        projectile.GetComponent<Scattering>().Initialize(_projectileGO[0], _projectileGO[0], 30, _projectileSpeed[_choice], 10f);
+        projectile.GetComponent<ProjectileBase>()._target = _player.gameObject;
+        yield return new WaitForSeconds(fireRate);
+        _canShoot = true;
     }
 }

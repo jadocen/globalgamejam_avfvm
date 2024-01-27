@@ -16,6 +16,7 @@ public class PlayerControls : MonoBehaviour
     private bool _canAttack;
     public bool _isInvulnerable;
     private bool _startModulating;
+    private HealthComponent _healthComponent;
 
     private void Start()
     {
@@ -24,6 +25,8 @@ public class PlayerControls : MonoBehaviour
         _canAttack = true;
         _isInvulnerable = false;
         _startModulating = true;
+        _healthComponent = GetComponent<HealthComponent>();
+        _healthComponent._player = this;
     }
 
     public void Update()
@@ -37,12 +40,12 @@ public class PlayerControls : MonoBehaviour
 
         if (_canAttack)
         {
-            if (Input.GetKeyDown(KeyCode.Q) && _movement == Vector2.zero)
+            if (Input.GetKeyDown(KeyCode.Z) && _movement == Vector2.zero)
             {
                 _canAttack = false;
                 PunchAttack(0.3f);
             }
-            else if (Input.GetKeyDown(KeyCode.E) && _movement == Vector2.zero)
+            else if (Input.GetKeyDown(KeyCode.X) && _movement == Vector2.zero)
             {
                 _canAttack = false;
                 KickAttack(0.8f);
@@ -76,13 +79,13 @@ public class PlayerControls : MonoBehaviour
         SpriteRenderer playerColor = gameObject.GetComponent<SpriteRenderer>();
         if (playerColor.color.a > 0.3f)
         {
-            playerColor.color = new Color(1, 1, 1, 0.3f);
+            playerColor.color = new Color(1f, 0, 0, 0.3f);
         }
         else
         {
-            playerColor.color = new Color(1, 1, 1, 0.8f);
+            playerColor.color = new Color(1, 0, 0, 0.8f);
         }
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.05f);
         if (_isInvulnerable)
         {
             StartCoroutine(ModulateColor());

@@ -103,8 +103,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: 0
-  _player: {fileID: 0}
-  _playerColor: {fileID: 0}
+  _player: {fileID: 3050751918378232763}
+  _playerColor: {fileID: 3050751918378232760}
 --- !u!114 &3050751918378232763
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,7 +121,7 @@ MonoBehaviour:
   _animator: {fileID: 3050751918378232766}
   _rb: {fileID: 3050751918378232762}
   _pivotPoint: {fileID: 3050751919237583585}
-  _attackBox: {fileID: 3050751919280347113}
+  _attackBox: {fileID: 3050751918489645906}
   _isInvulnerable: 0
 --- !u!50 &3050751918378232762
 Rigidbody2D:
@@ -143,7 +143,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!95 &3050751918378232766
 Animator:
   serializedVersion: 5
@@ -233,6 +233,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3050751919280347114}
   - component: {fileID: 3050751919280347115}
+  - component: {fileID: 3050751918489645906}
   m_Layer: 9
   m_Name: AttackBox
   m_TagString: Untagged
@@ -281,3 +282,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &3050751918489645906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3050751919280347113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e466410586042647aa97ce432795b59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _boss: {fileID: 0}

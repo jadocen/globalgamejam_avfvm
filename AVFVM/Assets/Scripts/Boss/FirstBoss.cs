@@ -6,8 +6,8 @@ public class FirstBoss : BossBase
 {
     public override void Start()
     {
-        InitializeBoss(100);
         base.Start();
+        InitializeBoss(100);
     }
 
     public override IEnumerator Attack1()

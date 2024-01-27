@@ -21,6 +21,8 @@ public class BossBase : MonoBehaviour
 
     public virtual void Start()
     {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        _player = player.GetComponent<PlayerControls>();
         _enemyHealthScript = GetComponent<EnemyHealth>();
         _reset = false;
         _canShoot = false;

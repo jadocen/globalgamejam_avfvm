@@ -12,7 +12,7 @@ public class HealthComponent : MonoBehaviour
 
     public void Start()
     {
-        _health = 3f;
+        _health = 10f;
     }
 
     public virtual void Update()
@@ -28,10 +28,13 @@ public class HealthComponent : MonoBehaviour
     {
         if (_player._isInvulnerable == false)
         {
-            _player._isInvulnerable = true;
             _health -= damageTaken;
             RegulateHealth();
-            StartCoroutine(Invulnerability());
+            if (_health > 0)
+            {
+                _player._isInvulnerable = true;
+                StartCoroutine(Invulnerability());
+            }
         }
     }
 
@@ -50,7 +53,7 @@ public class HealthComponent : MonoBehaviour
 
         if (_health <= 0)
         {
-            Die();
+            _player.gameObject.GetComponent<Animator>().SetBool("Die", true);
         }
     }
 
@@ -60,7 +63,7 @@ public class HealthComponent : MonoBehaviour
         _player._isInvulnerable = false;
     }
 
-    private void Die()
+    private void Died()
     {
         Destroy(gameObject);
     }
