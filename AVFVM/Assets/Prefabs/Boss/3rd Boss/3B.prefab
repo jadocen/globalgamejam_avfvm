@@ -76,6 +76,7 @@ GameObject:
   - component: {fileID: 8377021192719155633}
   - component: {fileID: 8377021192719155632}
   - component: {fileID: 8377021192719155634}
+  - component: {fileID: 2080866843}
   m_Layer: 7
   m_Name: 3B
   m_TagString: Enemy Boss
@@ -92,7 +93,7 @@ Transform:
   m_GameObject: {fileID: 8377021192719155642}
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
   m_LocalPosition: {x: -0.05, y: 2.76, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 1}
+  m_LocalScale: {x: 4, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8377021193440205734}
@@ -142,10 +143,10 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 83ed2b0b72d5ea247b2a640fd441fb4e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
-  m_FlipY: 0
+  m_FlipY: 1
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
@@ -183,8 +184,8 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0.16}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.28866667}
-    oldSize: {x: 1, y: 1}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.8, y: 1.12}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -230,6 +231,12 @@ MonoBehaviour:
   - {fileID: 8280672008347813046, guid: 1002397014e20404ca86ae0cccddf885, type: 3}
   - {fileID: 2500816048356056008, guid: dac827a20315e134b9357ffe03da0808, type: 3}
   - {fileID: 2500816048356056008, guid: edf19551bf5ee6b44ac7b18adeca490e, type: 3}
+  - {fileID: 8280672008347813046, guid: 176da92f4b0e4674fab0ff19765e8248, type: 3}
+  - {fileID: 8280672008347813046, guid: 8f17a6ef5507d7f43bf0f18d3712a178, type: 3}
+  - {fileID: 2500816048356056008, guid: d6a63f75855f06642a59024a3eb074d8, type: 3}
+  - {fileID: 7979753607963554023, guid: 870df2c3cd0bd1249b2b7d2838eb459d, type: 3}
+  - {fileID: 2500816048356056008, guid: 559885aadd86c9b4796a6aa5c5201264, type: 3}
+  - {fileID: 7979753607963554023, guid: aacc9ad03be41024ea04a636af8d806a, type: 3}
   _canShoot: 0
   _isAttacking: 0
   _setDuration: 0
@@ -248,8 +255,30 @@ MonoBehaviour:
   _aimDirection: {fileID: 0}
   _player: {fileID: 0}
   _enemyHealthScript: {fileID: 0}
+  _animator: {fileID: 0}
   _aimDirection2: {fileID: 0}
   _aimDirection3: {fileID: 0}
+--- !u!95 &2080866843
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8377021192719155642}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f372668c46caf5147bd42e0b645c35a8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8377021193440205735
 GameObject:
   m_ObjectHideFlags: 0

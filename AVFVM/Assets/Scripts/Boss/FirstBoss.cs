@@ -36,7 +36,7 @@ public class FirstBoss : BossBase
 
     public override IEnumerator Attack3()
     {
-        _doNext = 0.1f;
+        _doNext = 3f;
         float chargeTime = _duration[_choice] - 2f;
         yield return new WaitForSeconds(chargeTime);
         GameObject projectile = Instantiate(_projectileGO[_choice], transform.position, _aimDirection.transform.rotation);

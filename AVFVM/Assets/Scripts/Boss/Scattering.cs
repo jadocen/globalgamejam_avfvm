@@ -8,6 +8,7 @@ public class Scattering : ProjectileBase
     [SerializeField] protected GameObject _aimDirection;
     public GameObject _scatterBullet;
     public GameObject _middleBullet;
+    public GameObject _lastBullet;
     public int _increment;
 
     public override void Start()
@@ -48,7 +49,7 @@ public class Scattering : ProjectileBase
                     if (projectile.GetComponent<Scattering>())
                     {
                         projectile.GetComponent<Scattering>()._target = _target;
-                        projectile.GetComponent<Scattering>().Initialize(_scatterBullet, _scatterBullet, 15, _speed, 10f);
+                        projectile.GetComponent<Scattering>().Initialize(_lastBullet, _lastBullet, 15, _speed, 10f);
                     }
                 }
                 else

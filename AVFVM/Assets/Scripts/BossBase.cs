@@ -1,6 +1,15 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
+
+public enum Triggers
+{
+    Attack1,
+    Attack2,
+    Attack3
+}
 
 public class BossBase : MonoBehaviour
 {
@@ -18,9 +27,11 @@ public class BossBase : MonoBehaviour
     [SerializeField] protected GameObject _aimDirection;
     [SerializeField] protected PlayerControls _player;
     [SerializeField] private EnemyHealth _enemyHealthScript;
+    [SerializeField] protected Animator _animator;
 
     public virtual void Start()
     {
+        _animator = GetComponent<Animator>();
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         _player = player.GetComponent<PlayerControls>();
         _enemyHealthScript = GetComponent<EnemyHealth>();
@@ -29,6 +40,7 @@ public class BossBase : MonoBehaviour
         _isAttacking = false;
         _aimDirection = transform.GetChild(0).gameObject;
         Invoke("StartAttacking", 3f);
+        _animator.SetTrigger("Choose");
     }
 
     public virtual void Update()
@@ -50,6 +62,7 @@ public class BossBase : MonoBehaviour
             }
             else if (_reset)
             {
+                _animator.SetTrigger("AttackDone");
                 _reset = false;
                 StartCoroutine(NextAttack());
             }
@@ -60,6 +73,7 @@ public class BossBase : MonoBehaviour
     public void StartAttacking()
     {
         _choice = Random.Range(0, _duration.Length);
+        _animator.SetTrigger(Enum.GetName(typeof(Triggers), _choice));
         _currentDuration = _duration[_choice];
         _reset = true;
         _canShoot = true;
@@ -69,7 +83,8 @@ public class BossBase : MonoBehaviour
     public virtual IEnumerator NextAttack()
     {
         _isAttacking = false;
-        _choice = Random.Range(0, _duration.Length);
+        yield return new WaitForSeconds(2f);
+        _animator.SetTrigger("Choose");
         yield return new WaitForSeconds(_doNext);
         StartAttacking();
     }

@@ -21,7 +21,8 @@ public class ThirdBoss : BossBase
         float fireRate = 0.2f;
         float random = Random.Range(-60f, 60f);
         Vector3 angle = new Vector3(_aimDirection.transform.eulerAngles.x, _aimDirection.transform.eulerAngles.y, _aimDirection.transform.eulerAngles.z - random);
-        GameObject projectile = Instantiate(_projectileGO[_choice], transform.position, Quaternion.Euler(angle));
+        GameObject[] array = new GameObject[4] { _projectileGO[0], _projectileGO[3], _projectileGO[4], _projectileGO[5] };
+        GameObject projectile = Instantiate(array[Random.Range(0, 4)], transform.position, Quaternion.Euler(angle));
         projectile.GetComponent<ProjectileBase>().Initialize(_projectileSpeed[_choice], 4f);
         yield return new WaitForSeconds(fireRate);
         _canShoot = true;
@@ -32,11 +33,9 @@ public class ThirdBoss : BossBase
         _doNext = 3f;
         float fireRate = 2f;
         GameObject projectile = Instantiate(_projectileGO[_choice], transform.position, _aimDirection.transform.rotation);
-        projectile.GetComponent<ProjectileBase>().Initialize(_projectileSpeed[_choice], 10f);
+        projectile.GetComponent<Scattering>().Initialize(_projectileGO[7], _projectileGO[6], 30, _projectileSpeed[_choice], 10f);
         projectile.GetComponent<ProjectileBase>()._target = _player.gameObject;
-        projectile.GetComponent<Scattering>()._middleBullet = _projectileGO[_choice];
-        projectile.GetComponent<Scattering>()._scatterBullet = _projectileGO[0];
-        projectile.GetComponent<Scattering>()._increment = 30;
+        projectile.GetComponent<Scattering>()._lastBullet = _projectileGO[8];
         yield return new WaitForSeconds(fireRate);
         _canShoot = true;
     }

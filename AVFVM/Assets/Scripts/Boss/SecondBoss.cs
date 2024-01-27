@@ -55,7 +55,7 @@ public class SecondBoss : BossBase
         _doNext = 3f;
         float fireRate = 2f;
         GameObject projectile = Instantiate(_projectileGO[_choice], transform.position, _aimDirection.transform.rotation);
-        projectile.GetComponent<Scattering>().Initialize(_projectileGO[0], _projectileGO[0], 30, _projectileSpeed[_choice], 10f);
+        projectile.GetComponent<Scattering>().Initialize(_projectileGO[3], _projectileGO[3], 30, _projectileSpeed[_choice], 10f);
         projectile.GetComponent<ProjectileBase>()._target = _player.gameObject;
         yield return new WaitForSeconds(fireRate);
         _canShoot = true;

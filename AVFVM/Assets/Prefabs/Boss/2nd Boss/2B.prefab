@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 8443713459960811748}
   - component: {fileID: 8443713459960811755}
   - component: {fileID: 8443713459960811754}
+  - component: {fileID: 1097956999}
   m_Layer: 7
   m_Name: 2B
   m_TagString: Enemy Boss
@@ -61,7 +62,7 @@ Transform:
   m_GameObject: {fileID: 8443713459960811744}
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
   m_LocalPosition: {x: -0.05, y: 2.76, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 1}
+  m_LocalScale: {x: 4, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8443713460582992636}
@@ -110,10 +111,10 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 645ff8edcb9d0b840a6e1695c4bc6a3f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
-  m_FlipY: 0
+  m_FlipY: 1
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
@@ -137,6 +138,7 @@ MonoBehaviour:
   - {fileID: 2500816048356056008, guid: d6a63f75855f06642a59024a3eb074d8, type: 3}
   - {fileID: 2500816048356056008, guid: f095abb3e6e28cd4484b808a372d6fc4, type: 3}
   - {fileID: 2500816048356056008, guid: 559885aadd86c9b4796a6aa5c5201264, type: 3}
+  - {fileID: 7979753607963554023, guid: aacc9ad03be41024ea04a636af8d806a, type: 3}
   _canShoot: 0
   _isAttacking: 0
   _setDuration: 0
@@ -155,6 +157,7 @@ MonoBehaviour:
   _aimDirection: {fileID: 0}
   _player: {fileID: 0}
   _enemyHealthScript: {fileID: 8443713459960811748}
+  _animator: {fileID: 0}
   _aimDirection2: {fileID: 0}
 --- !u!114 &8443713459960811748
 MonoBehaviour:
@@ -186,8 +189,8 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0.16}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.28866667}
-    oldSize: {x: 1, y: 1}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.8, y: 1.12}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -217,6 +220,27 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!95 &1097956999
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8443713459960811744}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: edcf2e83e97fd4c488ba8d3e77898ca5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8443713460582992637
 GameObject:
   m_ObjectHideFlags: 0
