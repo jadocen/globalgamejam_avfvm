@@ -29,7 +29,7 @@ public class EnemyHealth : MonoBehaviour
     {
         if (_health <= 0)
         {
-            Destroy(this);
+            Destroy(gameObject);
         }
 
         if (_health > _maxHealth)
