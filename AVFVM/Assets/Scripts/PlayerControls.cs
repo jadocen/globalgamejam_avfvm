@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerControls : MonoBehaviour
 {
-    public float _speed = 10;
+    public float _speed = 4;
     public Animator _animator;
     public Rigidbody2D _rb;
     public GameObject _pivotPoint;
