@@ -32,8 +32,13 @@ public class HealthComponent : MonoBehaviour
             RegulateHealth();
             if (_health > 0)
             {
+                AudioManager.instance.PlaySound(Sounds.Damaged);
                 _player._isInvulnerable = true;
                 StartCoroutine(Invulnerability());
+            }
+            else
+            {
+                AudioManager.instance.PlaySound(Sounds.Die);
             }
         }
     }

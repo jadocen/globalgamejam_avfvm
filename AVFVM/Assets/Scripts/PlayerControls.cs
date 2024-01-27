@@ -105,6 +105,7 @@ public class PlayerControls : MonoBehaviour
     public void PunchAttack(float cooldown)
     {
         _animator.SetTrigger("isPunching");
+        AudioManager.instance.PlaySound(Sounds.Punch);
         if (_attackBox._boss != null)
         {
             _attackBox._boss.TakeDamage(_lightDamage);
@@ -115,6 +116,7 @@ public class PlayerControls : MonoBehaviour
     public void KickAttack(float cooldown)
     {
         _animator.SetTrigger("isKicking");
+        AudioManager.instance.PlaySound(Sounds.Kick);
         if (_attackBox._boss != null)
         {
             _attackBox._boss.TakeDamage(_heavyDamage);
