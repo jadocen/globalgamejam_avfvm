@@ -5,9 +5,11 @@ using UnityEngine;
 public class Surveillance : MinionBase
 {
     //Angle of rotation per Second
-    public float _speed = 60;
-    
-    private Vector3 _rotation;
+    public float _speed = 60f;
+    public float _playerDirection = 0f;
+
+    public Vector3 _rotation;
+    public bool _isPlayerDetected = false;
 
     public override void Attack() //Rotate Clockwise
     {
@@ -23,11 +25,27 @@ public class Surveillance : MinionBase
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log(other.gameObject.name);
+        _isPlayerDetected = true;
+        StartCoroutine(CO_ResetLevel());
+    }
+
+    public void OnTriggerExit2D(Collider2D other)
+    {
+        _isPlayerDetected = false;
+        StopAllCoroutines();
+    }
+
+    private IEnumerator CO_ResetLevel()
+    {
+        yield return new WaitForSeconds(3f);
+        Debug.Log("RESTART");
     }
 
     private void FixedUpdate()
     {
-        transform.Rotate(_rotation * _speed * Time.deltaTime);
+        if (!_isPlayerDetected)
+        {
+            transform.Rotate(_rotation * _speed * Time.deltaTime);
+        }
     }
 }

@@ -8,4 +8,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BossDevMap.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Level1.unity
+    guid: 72e1bcad240d76440971c2dbcab9fb7b
+  - enabled: 1
+    path: Assets/Scenes/Level2.unity
+    guid: 9e23a70ecd8fb914191ef8200537124c
+  - enabled: 1
+    path: Assets/Scenes/Level3.unity
+    guid: 89bfad67666040c48aa185961d0cc9c8
   m_configObjects: {}
