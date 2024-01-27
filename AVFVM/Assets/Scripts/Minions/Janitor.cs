@@ -5,6 +5,13 @@ using UnityEngine;
 public class Janitor : MinionBase
 {
     private Vector3 _direction;
+    public Animator _animator;
+
+    public override void Start()
+    {
+        _animator = GetComponent<Animator>();
+        base.Start();
+    }
 
     public override void Attack() //Janitor Goes Right
     {

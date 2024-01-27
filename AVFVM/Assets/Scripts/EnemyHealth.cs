@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
@@ -29,7 +30,13 @@ public class EnemyHealth : MonoBehaviour
     {
         if (_health <= 0)
         {
-            Destroy(gameObject);
+            if (this.gameObject.GetComponent<BossBase>() != null)
+            {
+                this.gameObject.GetComponent<BossBase>().Die();
+            }
+
+            //hi moises sorry sa code na to HAHAHAHAHA 
+            Destroy(this.gameObject.GetComponent<SpriteRenderer>());
         }
 
         if (_health > _maxHealth)

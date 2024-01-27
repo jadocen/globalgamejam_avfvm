@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 public enum Triggers
@@ -128,8 +129,16 @@ public class BossBase : MonoBehaviour
         _canShoot = true;
     }
 
+    public virtual IEnumerator CO_NextScene()
+    {
+        Debug.Log("Next Scene Loading");    
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
     public virtual void Die()
     {
         //Play Death animation
+        StartCoroutine(CO_NextScene());
     }
 }
