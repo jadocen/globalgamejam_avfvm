@@ -7,13 +7,12 @@ public class MinionBase : MonoBehaviour
     [Header("[INITIALIZE STATS]")]
     public float _attackDuration;
     public float _attackRecovery;
-
+    
     public bool _isAttacking;
 
-    public void Start()
+    public virtual void Start()
     {
         _isAttacking = false;
-
         StartCoroutine(CO_Attack());
     }
 
@@ -32,7 +31,7 @@ public class MinionBase : MonoBehaviour
         _isAttacking = false;
     }
 
-    private IEnumerator CO_Attack()
+    public virtual IEnumerator CO_Attack()
     {
         Attack();
         yield return new WaitForSeconds(_attackDuration);

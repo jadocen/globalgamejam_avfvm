@@ -7,19 +7,27 @@ public class WaterFountain : MinionBase
     public GameObject _water;
     public Animator _animator;
 
+    public override void Start()
+    {
+        _animator = GetComponent<Animator>();
+        base.Start();
+    }
+
     public override void Attack()
     {
         base.Attack();
-    }
-
-    public void Activate()
-    {
-        _water.SetActive(true);
+        _animator.SetBool("isAttacking", _isAttacking);
     }
 
     public override void ChargeTime()
     {
         base.ChargeTime();
+        _animator.SetBool("isAttacking", _isAttacking);
+    }
+
+    public void Activate()
+    {
+        _water.SetActive(true);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -30,7 +38,6 @@ public class WaterFountain : MinionBase
         Vector2 impact = (collision.gameObject.transform.position - this.transform.position).normalized * Time.deltaTime;
 
         collision.gameObject.transform.Translate(impact * knockback);
-        Debug.Log("Knockback");
     }
 
 
