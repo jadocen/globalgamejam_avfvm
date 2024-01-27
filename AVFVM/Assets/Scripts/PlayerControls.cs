@@ -10,6 +10,7 @@ public class PlayerControls : MonoBehaviour
     public Rigidbody2D _rb;
     public GameObject _pivotPoint;
     public AttackBox _attackBox;
+    public bool _canMove;
     private Vector2 _movement;
     private float _lightDamage;
     private float _heavyDamage;
@@ -27,6 +28,7 @@ public class PlayerControls : MonoBehaviour
         _startModulating = true;
         _healthComponent = GetComponent<HealthComponent>();
         _healthComponent._player = this;
+        _canMove = true;
     }
 
     public void Update()
@@ -71,7 +73,10 @@ public class PlayerControls : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Move();
+        if (_canMove)
+        {
+            Move();
+        }
     }
 
     public IEnumerator ModulateColor()
