@@ -53,8 +53,8 @@ public class PlayerControls : MonoBehaviour
 
     public float PunchAttack()
     {
-        Debug.Log(_heavyDamage);
-        return _heavyDamage;
+        Debug.Log(_lightDamage);
+        return _lightDamage;
     }
 
     public float KickAttack()
