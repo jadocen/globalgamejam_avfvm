@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 1622159822697227221}
   - component: {fileID: 1622159822697227220}
   - component: {fileID: 1622159822697227225}
-  - component: {fileID: 2871615808561057054}
+  - component: {fileID: 1622159822697227222}
   - component: {fileID: 1622159822697227223}
   m_Layer: 0
-  m_Name: Microwave
+  m_Name: Minion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 2747690628134850419, guid: b670ab75dde984907b8570040daa08c5, type: 3}
-  m_Color: {r: 0.5660378, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.9716981, g: 0.0779192, b: 0.0779192, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -107,8 +107,8 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 7
---- !u!114 &2871615808561057054
+  m_Constraints: 4
+--- !u!114 &1622159822697227222
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -117,14 +117,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1622159822697227224}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a4c059b7fc475d48948eedf2c8fccf6, type: 3}
+  m_Script: {fileID: 11500000, guid: 43e3f4094b1c16f46a7883ed94165fdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attackDuration: 0.5
-  _attackRecovery: 1
+  _attackDuration: 0
+  _attackRecovery: 0
   _isAttacking: 0
-  _projectileGO: {fileID: 8280672008347813046, guid: 8f17a6ef5507d7f43bf0f18d3712a178, type: 3}
-  _projectileSpeed: 5
 --- !u!61 &1622159822697227223
 BoxCollider2D:
   m_ObjectHideFlags: 0
