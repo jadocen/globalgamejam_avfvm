@@ -12,6 +12,7 @@ public class FirstBoss : BossBase
 
     public override IEnumerator Attack1()
     {
+        _doNext = 3f;
         float fireRate = 0.8f;
         GameObject projectile = Instantiate(_projectileGO[_choice], transform.position, _aimDirection.transform.rotation);
         projectile.GetComponent<ProjectileBase>().Initialize(_projectileSpeed[_choice], 3f);
@@ -21,6 +22,7 @@ public class FirstBoss : BossBase
 
     public override IEnumerator Attack2()
     {
+        _doNext = 3f;
         float fireRate = 1.3f;
         for (int i = -30; i <= 30; i += 15)
         {
@@ -34,6 +36,7 @@ public class FirstBoss : BossBase
 
     public override IEnumerator Attack3()
     {
+        _doNext = 0.1f;
         float chargeTime = _duration[_choice] - 2f;
         yield return new WaitForSeconds(chargeTime);
         GameObject projectile = Instantiate(_projectileGO[_choice], transform.position, _aimDirection.transform.rotation);

@@ -11,15 +11,15 @@ public class ProjectileBase : MonoBehaviour
 
     }
 
+    public virtual void Update()
+    {
+        transform.Translate(Vector2.up * _speed * Time.deltaTime);
+    }
+
     public void Initialize(float speed, float lifetime)
     {
         _speed = speed;
         Invoke("Lifetime", lifetime);
-    }
-
-    private void Update()
-    {
-        transform.Translate(Vector2.up * _speed * Time.deltaTime);
     }
 
     public void Lifetime()
@@ -29,7 +29,6 @@ public class ProjectileBase : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log(collision.gameObject.name);
         collision.gameObject.GetComponent<HealthComponent>().TakeDamage(1f);
         Destroy(gameObject);
     }

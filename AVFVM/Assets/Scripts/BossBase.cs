@@ -14,6 +14,7 @@ public class BossBase : MonoBehaviour
     [SerializeField] protected float[] _duration;
     [SerializeField] protected float _currentDuration;
     [SerializeField] protected float[] _projectileSpeed;
+    [SerializeField] protected float _doNext;
     [SerializeField] protected GameObject _aimDirection;
     [SerializeField] protected PlayerControls _player;
     [SerializeField] private EnemyHealth _enemyHealthScript;
@@ -28,7 +29,7 @@ public class BossBase : MonoBehaviour
         Invoke("StartAttacking", 3f);
     }
 
-    private void Update()
+    public virtual void Update()
     {
         if (_player != null)
         {
@@ -67,8 +68,7 @@ public class BossBase : MonoBehaviour
     {
         _isAttacking = false;
         _choice = Random.Range(0, _duration.Length);
-        float doNext = 3f;
-        yield return new WaitForSeconds(doNext);
+        yield return new WaitForSeconds(_doNext);
         StartAttacking();
     }
 
