@@ -52,7 +52,7 @@ public class BossBase : MonoBehaviour
 
     public void StartAttacking()
     {
-        _choice = Random.Range(0, 1);
+        _choice = Random.Range(0, _duration.Length);
         _currentDuration = _duration[_choice];
         _reset = true;
         _canShoot = true;
@@ -62,7 +62,7 @@ public class BossBase : MonoBehaviour
     public virtual IEnumerator NextAttack()
     {
         _isAttacking = false;
-        _choice = Random.Range(0, 1);
+        _choice = Random.Range(0, _duration.Length);
         float doNext = 3f;
         yield return new WaitForSeconds(doNext);
         StartAttacking();
