@@ -11,8 +11,8 @@ public class Microwave : MinionBase
     {
         base.Attack();
 
-        _projectileGO = Instantiate(_projectileGO, transform.position, transform.rotation);
-        _projectileGO.GetComponent<Projectile>().Initialize(_projectileSpeed, 3f);
+        GameObject spawnedProjectile = Instantiate(_projectileGO, transform.position, transform.rotation);
+        spawnedProjectile.GetComponent<Projectile>().Initialize(_projectileSpeed, 3f);
     }
 
     public override void ChargeTime()

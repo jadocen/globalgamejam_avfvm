@@ -5,7 +5,6 @@ using UnityEngine;
 public class MinionBase : MonoBehaviour
 {
     [Header("[INITIALIZE STATS]")]
-    public EnemyHealth _enemyHealth;
     public float _attackDuration;
     public float _attackRecovery;
 
@@ -13,7 +12,6 @@ public class MinionBase : MonoBehaviour
 
     public void Start()
     {
-        _enemyHealth = this.GetComponent<EnemyHealth>();
         _isAttacking = false;
 
         StartCoroutine(CO_Attack());

@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1622159822697227221}
   - component: {fileID: 1622159822697227220}
   - component: {fileID: 1622159822697227225}
-  - component: {fileID: 1622159822697227216}
   - component: {fileID: 2871615808561057054}
   - component: {fileID: 1622159822697227223}
   m_Layer: 0
@@ -109,20 +108,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &1622159822697227216
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1622159822697227224}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 001c99e2aaea29a45a483a7be03d2de1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _health: 0
-  _maxHealth: 25
 --- !u!114 &2871615808561057054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,7 +120,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a4c059b7fc475d48948eedf2c8fccf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyHealth: {fileID: 1622159822697227216}
   _attackDuration: 0.5
   _attackRecovery: 1
   _isAttacking: 0
