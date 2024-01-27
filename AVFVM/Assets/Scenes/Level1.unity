@@ -381,6 +381,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1319393309241250818, guid: 491826480e0b71549bd90ad75edb3705, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2
+      objectReference: {fileID: 0}
     - target: {fileID: 4986315559990089382, guid: 491826480e0b71549bd90ad75edb3705, type: 3}
       propertyPath: m_Name
       value: WaterFountain
@@ -964,7 +968,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1622159822697227221, guid: e551c6cbe36939c448e8badf13346668, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.98
+      value: -4.82
       objectReference: {fileID: 0}
     - target: {fileID: 1622159822697227221, guid: e551c6cbe36939c448e8badf13346668, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1489,6 +1493,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1319393309241250818, guid: 491826480e0b71549bd90ad75edb3705, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.8
+      objectReference: {fileID: 0}
     - target: {fileID: 4986315559990089382, guid: 491826480e0b71549bd90ad75edb3705, type: 3}
       propertyPath: m_Name
       value: WaterFountain (1)
@@ -1499,11 +1507,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4986315559990089387, guid: 491826480e0b71549bd90ad75edb3705, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.12
+      value: 0.26
       objectReference: {fileID: 0}
     - target: {fileID: 4986315559990089387, guid: 491826480e0b71549bd90ad75edb3705, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -17.51
+      value: -18.17
       objectReference: {fileID: 0}
     - target: {fileID: 4986315559990089387, guid: 491826480e0b71549bd90ad75edb3705, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1560,7 +1568,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3050751918378232761, guid: 23502c4c50d1b6145a9fc91a5f1213b5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -20.96
+      value: -22.89
       objectReference: {fileID: 0}
     - target: {fileID: 3050751918378232761, guid: 23502c4c50d1b6145a9fc91a5f1213b5, type: 3}
       propertyPath: m_LocalPosition.z
