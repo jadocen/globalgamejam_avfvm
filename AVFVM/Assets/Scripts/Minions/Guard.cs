@@ -41,7 +41,6 @@ public class Guard : MinionBase
         }
         else
         {
-            Debug.Log("ENTER Not Player");
             _isPlayerDetected = false;
             animator.SetBool("detected", _isPlayerDetected);
         }
@@ -60,7 +59,6 @@ public class Guard : MinionBase
         }
         else
         {
-            Debug.Log("exit Not Player");
             _isPlayerDetected = false;
             animator.SetBool("detected", _isPlayerDetected);
         }

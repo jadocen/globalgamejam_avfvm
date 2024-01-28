@@ -22,8 +22,8 @@ public class PlayerControls : MonoBehaviour
     private void Start()
     {
         _speed = 4f;
-        _lightDamage = 5;
-        _heavyDamage = 10;
+        _lightDamage = 2.5f;
+        _heavyDamage = 5f;
         _canAttack = true;
         _isInvulnerable = false;
         _startModulating = true;

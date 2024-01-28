@@ -39,6 +39,7 @@ public class Scattering : ProjectileBase
         }
         else
         {
+            AudioManager.instance.PlaySound(Sounds.B2A32);
             for (int i = -30; i <= 30; i += _increment)
             {
                 Vector3 angle = new Vector3(_aimDirection.transform.eulerAngles.x, _aimDirection.transform.eulerAngles.y, _aimDirection.transform.eulerAngles.z - i);

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HealthComponent : MonoBehaviour
 {
@@ -38,6 +39,7 @@ public class HealthComponent : MonoBehaviour
             }
             else
             {
+                _player._isInvulnerable = true;
                 AudioManager.instance.PlaySound(Sounds.Die);
             }
         }
@@ -70,6 +72,14 @@ public class HealthComponent : MonoBehaviour
 
     private void Died()
     {
-        Destroy(gameObject);
+        gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        StartCoroutine(RestartLevel());
+    }
+
+    IEnumerator RestartLevel()
+    {
+        yield return new WaitForSeconds(2f);
+        Scene scene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(scene.name);
     }
 }

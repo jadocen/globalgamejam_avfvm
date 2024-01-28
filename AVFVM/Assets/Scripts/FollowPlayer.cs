@@ -10,11 +10,10 @@ public class FollowPlayer : MonoBehaviour
 
     private void Update()
     {
-        _health.fillAmount = player.GetComponent<HealthComponent>()._health / 10;
-
         //Camera position follows player + offset
         if (player != null)
         {
+            _health.fillAmount = player.GetComponent<HealthComponent>()._health / 10;
             transform.position = player.position + new Vector3(0, 0, -5);
         }
     }

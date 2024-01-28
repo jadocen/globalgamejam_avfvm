@@ -17,6 +17,7 @@ public class CoffeeMaker : MonoBehaviour
         if (collision.GetComponent<HealthComponent>() != null)
         {
             _playerHealth = collision.GetComponent<HealthComponent>();
+            AudioManager.instance.PlaySound(Sounds.CoffeeMaker);
             _animator.SetBool("Explode", true);
         }
     }

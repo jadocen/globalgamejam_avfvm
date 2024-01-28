@@ -34,14 +34,20 @@ public class EnemyHealth : MonoBehaviour
             {
                 this.gameObject.GetComponent<BossBase>().Die();
             }
-
             //hi moises sorry sa code na to HAHAHAHAHA 
             Destroy(this.gameObject.GetComponent<SpriteRenderer>());
+            StartCoroutine(DestroyBoss());
         }
 
         if (_health > _maxHealth)
         {
             _health = _maxHealth;
         }
+    }
+
+    IEnumerator DestroyBoss()
+    {
+        yield return new WaitForSeconds(1f);
+        Destroy(this.gameObject);
     }
 }

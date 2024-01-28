@@ -34,7 +34,6 @@ public class Surveillance : MinionBase
         }
         else
         {
-            Debug.Log("ENTER Not Player");
             _isPlayerDetected = false;
         }
     }
@@ -51,7 +50,6 @@ public class Surveillance : MinionBase
         }
         else
         {
-            Debug.Log("exit Not Player");
             _isPlayerDetected = false;
         }
     }

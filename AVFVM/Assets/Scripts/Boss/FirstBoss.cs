@@ -7,7 +7,7 @@ public class FirstBoss : BossBase
     public override void Start()
     {
         base.Start();
-        InitializeBoss(100);
+        InitializeBoss(50);
     }
 
     public override IEnumerator Attack1()

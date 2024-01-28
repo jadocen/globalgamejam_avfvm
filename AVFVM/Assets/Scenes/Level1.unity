@@ -328,9 +328,9 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 3f9a7db4ab3d3e7408aa368a03be6f5e, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.75
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -2505,7 +2505,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5564916669368879033, guid: e6f4212436b6cd3499a1e1b3faad6714, type: 3}
       propertyPath: _projectileSpeed.Array.data[2]
-      value: 15
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 5564916669368879035, guid: e6f4212436b6cd3499a1e1b3faad6714, type: 3}
       propertyPath: m_RootOrder
@@ -2568,17 +2568,85 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4758374332357851524, guid: 13a79e7d63e62f84293136235770de5c, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4758374332357851524, guid: 13a79e7d63e62f84293136235770de5c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a900062baa751ad4f8fbf7991886a6cc, type: 3}
+    - target: {fileID: 4758374332357851547, guid: 13a79e7d63e62f84293136235770de5c, type: 3}
+      propertyPath: m_Transition
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4758374332357851547, guid: 13a79e7d63e62f84293136235770de5c, type: 3}
+      propertyPath: m_SpriteState.m_PressedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 641e3e1b78e7aae4f9d521eebe91e5af, type: 3}
+    - target: {fileID: 4758374332357851547, guid: 13a79e7d63e62f84293136235770de5c, type: 3}
+      propertyPath: m_SpriteState.m_SelectedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8bbfee70e14977f46a1ad42f608a27bd, type: 3}
+    - target: {fileID: 4758374332357851547, guid: 13a79e7d63e62f84293136235770de5c, type: 3}
+      propertyPath: m_SpriteState.m_HighlightedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8bbfee70e14977f46a1ad42f608a27bd, type: 3}
     - target: {fileID: 4758374332357851547, guid: 13a79e7d63e62f84293136235770de5c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 368928991}
+    - target: {fileID: 4758374332629064383, guid: 13a79e7d63e62f84293136235770de5c, type: 3}
+      propertyPath: m_text
+      value: '
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4758374332830311736, guid: 13a79e7d63e62f84293136235770de5c, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4758374332830311736, guid: 13a79e7d63e62f84293136235770de5c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b66aa28eacaa94e4b9f7cec5c9b092cb, type: 3}
+    - target: {fileID: 4758374332830311741, guid: 13a79e7d63e62f84293136235770de5c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4758374332830311743, guid: 13a79e7d63e62f84293136235770de5c, type: 3}
+      propertyPath: m_Transition
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4758374332830311743, guid: 13a79e7d63e62f84293136235770de5c, type: 3}
+      propertyPath: m_SpriteState.m_PressedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 757beda2c8ca48f47b2a75d890ae53e7, type: 3}
+    - target: {fileID: 4758374332830311743, guid: 13a79e7d63e62f84293136235770de5c, type: 3}
+      propertyPath: m_SpriteState.m_SelectedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1cea9fe6bfb4de94f8bb8101bfbefba8, type: 3}
+    - target: {fileID: 4758374332830311743, guid: 13a79e7d63e62f84293136235770de5c, type: 3}
+      propertyPath: m_SpriteState.m_HighlightedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1cea9fe6bfb4de94f8bb8101bfbefba8, type: 3}
     - target: {fileID: 4758374332830311743, guid: 13a79e7d63e62f84293136235770de5c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 368928991}
+    - target: {fileID: 4758374333620841310, guid: 13a79e7d63e62f84293136235770de5c, type: 3}
+      propertyPath: m_text
+      value: '
+
+'
+      objectReference: {fileID: 0}
     - target: {fileID: 4758374333704406315, guid: 13a79e7d63e62f84293136235770de5c, type: 3}
       propertyPath: m_Name
       value: PauseUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 4758374333704406315, guid: 13a79e7d63e62f84293136235770de5c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4758374333704406359, guid: 13a79e7d63e62f84293136235770de5c, type: 3}
       propertyPath: m_Pivot.x

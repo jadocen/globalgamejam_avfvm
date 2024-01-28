@@ -10,9 +10,15 @@ public enum Sounds
     Kick,
     Punch,
     Pickup,
+    CoffeeMaker,
     B1A1,
     B1A2,
-    B1A3
+    B1A3,
+    Choose,
+    BossDefeat,
+    B2A2,
+    B2A32,
+    YouWin
 }
 
 public class AudioManager : MonoBehaviour

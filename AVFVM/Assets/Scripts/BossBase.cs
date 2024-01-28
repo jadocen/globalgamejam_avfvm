@@ -85,6 +85,7 @@ public class BossBase : MonoBehaviour
     {
         _isAttacking = false;
         yield return new WaitForSeconds(2f);
+        AudioManager.instance.PlaySound(Sounds.Choose);
         _animator.SetTrigger("Choose");
         yield return new WaitForSeconds(_doNext);
         StartAttacking();
@@ -138,6 +139,7 @@ public class BossBase : MonoBehaviour
 
     public virtual void Die()
     {
+        AudioManager.instance.PlaySound(Sounds.BossDefeat);
         //Play Death animation
         StartCoroutine(CO_NextScene());
     }
