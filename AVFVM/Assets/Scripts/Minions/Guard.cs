@@ -3,15 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Surveillance : MinionBase
+public class Guard : MinionBase
 {
     //Angle of rotation per Second
     public float _speed = 60f;
     public float _detectionWindow = 3f;
+    public Animator animator;
 
     public SpriteRenderer _spriteRenderer;
     public Vector3 _rotation;
     public bool _isPlayerDetected = false;
+
+    public override void Start()
+    {
+        base.Start();
+    }
 
     public override void Attack() //Rotate Clockwise
     {
@@ -30,12 +36,14 @@ public class Surveillance : MinionBase
         if (other.gameObject.CompareTag("Player"))
         {
             _isPlayerDetected = true;
+            animator.SetBool("detected", _isPlayerDetected);
             StartCoroutine(CO_ResetLevel());
         }
         else
         {
             Debug.Log("ENTER Not Player");
             _isPlayerDetected = false;
+            animator.SetBool("detected", _isPlayerDetected);
         }
     }
 
@@ -44,6 +52,7 @@ public class Surveillance : MinionBase
         if (other.gameObject.CompareTag("Player"))
         {
             _isPlayerDetected = false;
+            animator.SetBool("detected", _isPlayerDetected);
 
             //Cancels restart if player leaves FOV
             StopAllCoroutines();
@@ -53,6 +62,7 @@ public class Surveillance : MinionBase
         {
             Debug.Log("exit Not Player");
             _isPlayerDetected = false;
+            animator.SetBool("detected", _isPlayerDetected);
         }
     }
 
