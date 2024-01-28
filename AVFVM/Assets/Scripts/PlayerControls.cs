@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerControls : MonoBehaviour
 {
-    public float _speed = 4;
+    public float _speed;
     public Animator _animator;
     public Rigidbody2D _rb;
     public GameObject _pivotPoint;
@@ -21,6 +21,7 @@ public class PlayerControls : MonoBehaviour
 
     private void Start()
     {
+        _speed = 4f;
         _lightDamage = 5;
         _heavyDamage = 10;
         _canAttack = true;
@@ -42,15 +43,15 @@ public class PlayerControls : MonoBehaviour
 
         if (_canAttack)
         {
-            if (Input.GetKeyDown(KeyCode.Z) && _movement == Vector2.zero)
+            if (Input.GetKeyDown(KeyCode.X) && _movement == Vector2.zero)
             {
                 _canAttack = false;
-                PunchAttack(0.3f);
+                PunchAttack(0.6f);
             }
-            else if (Input.GetKeyDown(KeyCode.X) && _movement == Vector2.zero)
+            else if (Input.GetKeyDown(KeyCode.Z) && _movement == Vector2.zero)
             {
                 _canAttack = false;
-                KickAttack(0.8f);
+                KickAttack(1.2f);
             }
         }
 

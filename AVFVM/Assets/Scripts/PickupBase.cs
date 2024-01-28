@@ -50,8 +50,8 @@ public class PickupBase : MinionBase
             {
                 _playerControl._speed += _buffAmount;
             }
-
-            Destroy(this.gameObject, .5f);
+            AudioManager.instance.PlaySound(Sounds.Pickup);
+            StartCoroutine(DestroyThis());
         }
     }
 
@@ -73,5 +73,12 @@ public class PickupBase : MinionBase
     private void FixedUpdate()
     {
         transform.Translate(_direction * Time.deltaTime);
+    }
+
+    IEnumerator DestroyThis()
+    {
+        this.gameObject.GetComponent<SpriteRenderer>().enabled = false; 
+        yield return new WaitForSeconds(1f);
+        Destroy(this.gameObject, .5f);
     }
 }

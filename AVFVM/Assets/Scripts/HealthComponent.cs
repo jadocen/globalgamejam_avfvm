@@ -12,7 +12,7 @@ public class HealthComponent : MonoBehaviour
 
     public void Start()
     {
-        _health = 10f;
+        _health = 5f;
     }
 
     public virtual void Update()

@@ -4,10 +4,15 @@ using UnityEngine;
 
 public enum Sounds
 {
+    Menu,
     Damaged,
     Die,
     Kick,
-    Punch
+    Punch,
+    Pickup,
+    B1A1,
+    B1A2,
+    B1A3
 }
 
 public class AudioManager : MonoBehaviour
